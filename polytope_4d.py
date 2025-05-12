@@ -318,7 +318,7 @@ class SixHundredCell(Polytope4D):
 
 
 if __name__ == '__main__':
-    # generate data for all regular polytopes in 4D
+    # generate data for all regular convex polytopes in 4D
     data_dir = './data'
     FiveCell().to_file(f'{data_dir}/5-cell.txt')
     EightCell().to_file(f'{data_dir}/8-cell.txt')

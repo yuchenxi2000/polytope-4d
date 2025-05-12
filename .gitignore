@@ -208,4 +208,3 @@ cython_debug/
 bpy/
 old/
 vtf/
-polyhedra.py

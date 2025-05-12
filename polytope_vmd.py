@@ -75,17 +75,16 @@ def right_rotation(point, axis, theta):
     return quaternion_mul(point, rot)
 
 
-# def td_rotation(point, t):
-#     theta = t / 2000 * 2 * np.pi
-#     axis = np.array([0, 0, 1], dtype=float)
-#     return rotation_4d(point, axis, theta)
-
-
 def td_rotation(point, t):
-    theta = t / 2000 * 2 * np.pi
-    axis = np.array([0, 0, 1], dtype=float)
-    q = quaternion_rotation(axis, 2 * theta)
-    return quaternion_mul(q, point)
+    axis1 = np.array([0, 0, 1], dtype=float)
+    axis2 = np.array([0, 0, 1], dtype=float)
+    if t < 1000:
+        theta = t / 1000 * np.pi
+        return left_rotation(point, axis1, theta)
+    else:
+        theta = (t - 1000) / 1000 * np.pi
+        p1 = left_rotation(point, axis1, np.pi)
+        return rotation_4d(p1, axis2, theta)
 
 
 fake_elem = 'C'
